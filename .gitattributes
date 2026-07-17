@@ -1,0 +1,2 @@
+# Enforce LF line endings for shell scripts to prevent bash execution errors on Linux
+*.sh text eol=lf

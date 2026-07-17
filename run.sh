@@ -33,4 +33,3 @@ fi
 #   --dry-run            Simulate runs and log queries without modifying database
 #   --date <YYYY-MM-DD>  Override run date (maps dynamically to d-X)
 python3 sync_filters.py "$@"
-
