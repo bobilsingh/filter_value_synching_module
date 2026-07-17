@@ -1,0 +1,10 @@
+# Database credentials (critical security)
+.env
+
+# Python caching
+__pycache__/
+*.pyc
+
+# Local logs
+logs/
+*.log
