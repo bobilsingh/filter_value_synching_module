@@ -20,11 +20,15 @@ def setup_logger():
         )
 
         # File Handler (rotating daily, keeping logs for 7 days)
-        file_handler = TimedRotatingFileHandler(
-            LOG_FILE_PATH, when="D", interval=1, backupCount=7
-        )
-        file_handler.setFormatter(formatter)
-        logger.addHandler(file_handler)
+        try:
+            file_handler = TimedRotatingFileHandler(
+                LOG_FILE_PATH, when="D", interval=1, backupCount=7
+            )
+            file_handler.setFormatter(formatter)
+            logger.addHandler(file_handler)
+        except (PermissionError, OSError) as e:
+            import sys
+            print(f"Warning: Log file not writable ({LOG_FILE_PATH}): {e}. Falling back to console-only logging.", file=sys.stderr)
 
         # Console Handler (stdout)
         console_handler = logging.StreamHandler()
