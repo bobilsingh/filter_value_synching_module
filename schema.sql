@@ -19,6 +19,8 @@ CREATE TABLE IF NOT EXISTS `dashboard_filter_value_sync_map` (
   `last_sync_status` ENUM('SUCCESS', 'FAILED', 'RUNNING') DEFAULT NULL,
   `rows_processed` INT NOT NULL DEFAULT 0,
   `rows_inserted` INT NOT NULL DEFAULT 0,
+  `total_rows_processed` INT NOT NULL DEFAULT 0,
+  `total_rows_inserted` INT NOT NULL DEFAULT 0,
   `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );

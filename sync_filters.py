@@ -405,10 +405,12 @@ def process_single_config(config, frequency_filter=None, dry_run=False, is_overr
                     SET last_sync_status = %s,
                         rows_processed = %s,
                         rows_inserted = %s,
+                        total_rows_processed = total_rows_processed + %s,
+                        total_rows_inserted = total_rows_inserted + %s,
                         last_sync_time = %s
                     WHERE id = %s
                 """,
-                    (run_status, total_processed, total_inserted, datetime.now(), sno),
+                    (run_status, total_processed, total_inserted, total_processed, total_inserted, datetime.now(), sno),
                 )
                 conn.commit()
                 cursor.close()
